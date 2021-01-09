@@ -261,9 +261,14 @@ endif()
 # Add CIMG Flags to Compilation Flags
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${CIMG_CFLAGS}")
 
+
+add_subdirectory(libjpeg)
+
 add_library(CImg INTERFACE)
 target_include_directories(CImg INTERFACE ${CIMG_H_PATH})
+target_include_directories(CImg INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/libjpeg)
 target_link_libraries(CImg INTERFACE ${SYSTEM_LIBS})
+target_link_libraries(CImg INTERFACE libjpeg)
 
 #SET(CIMG_FILES CImg_demo
 #  captcha

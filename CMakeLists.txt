@@ -11,7 +11,6 @@ add_subdirectory(osapi)
 add_subdirectory(Render)
 add_subdirectory(CImg)
 
-
 add_executable(OSFES main.cpp)
-target_link_libraries(OSFES PUBLIC osapi CImg)
+target_link_libraries(OSFES PUBLIC osapi CImg  libjpeg)
 

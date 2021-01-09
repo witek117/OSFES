@@ -1,3 +1,6 @@
 [submodule "CImg/CImg"]
 	path = CImg/CImg
 	url = https://github.com/dtschump/CImg.git
+[submodule "CImg/libjpeg"]
+	path = CImg/libjpeg
+	url = https://github.com/stohrendorf/libjpeg-cmake

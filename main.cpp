@@ -3,24 +3,23 @@
 #define cimg_use_jpeg
 #include "CImg.h"
 
-int main(int argc,char **argv) {
-//    const char* file_i = cimg_option("-i","img/parrot.jpg","Input image");
-//    // const double sigma = cimg_option("-blur",1.0,"Variance of gaussian pre-blurring");
-//    const cimg_library::CImg<unsigned char> image = cimg_library::CImg<>(file_i); //.normalize(0,255).blur((float)sigma).resize(-100,-100,1,3);
+const unsigned char red[]   = { 255,0,0 };
 
-    cimg_library::CImg<unsigned char> image("D:\\Git\\OSFES\\img\\parrot.jpg");
+int main(int argc,char **argv) {
+    cimg_library::CImg<unsigned char> image(R"(D:\Git\OSFES\img\parrot.jpg)");
     int width = image.width();
     int height = image.height();
 
-    std::cout << width << " " << height;
+    cimg_library::CImg<unsigned char> visu(image.width(),image.height(),1,3,0);
 
+    for (int y = 0; y < height; y++){
+        for (int x = 0; x < width; x++) {
+            int data[] = {image(x,y,0), image(x,y,1), image(x,y,2)};
+             visu.draw_point(x,y, data);
+        }
+    }
 
-    int x = 10;
-    int y = 10;
-
-    int val_red   = image(x,y,0);
-    int val_green   = image(x,y,1);
-    int val_blue   = image(x,y,2);
+    visu.save_jpeg(R"(D:\Git\OSFES\img\out.jpg)");
 
     return 0;
 }

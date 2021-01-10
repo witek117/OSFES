@@ -94,7 +94,7 @@ cimg_library::CImg<unsigned char>& Render::RenderFace::getImage() {
 std::array<double, 3> Render::orientations(double x, double y, Face face) {
     switch (face) {
         case Face::PZ: return {-1,-x,-y};
-        case Face::NZ: return {x,-1,-y};
+        case Face::NZ: return {1,x,-y};
         case Face::PX: return {x,-1,-y};
         case Face::NX: return {-x,1.0f,-y};
         case Face::PY: return {-y,-x, 1.0f};

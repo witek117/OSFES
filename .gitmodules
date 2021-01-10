@@ -4,3 +4,6 @@
 [submodule "CImg/libjpeg"]
 	path = CImg/libjpeg
 	url = https://github.com/stohrendorf/libjpeg-cmake
+[submodule "cxxopts"]
+	path = cxxopts
+	url = https://github.com/jarro2783/cxxopts

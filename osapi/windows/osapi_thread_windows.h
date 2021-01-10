@@ -92,7 +92,7 @@ class Thread : public ThreadInterface
 		 *  @retval false if the thread was not suspended for some reason
 		 */
 		virtual bool suspend() {
-		    if (SuspendThread(handle) != -1) {
+		    if (static_cast<int>(SuspendThread(handle)) != -1) {
 		        isRunningVariable = false;
                 return true;
 		    } else {
@@ -106,7 +106,7 @@ class Thread : public ThreadInterface
 		 *  @retval false if the thread was not resumed for some reason
 		 */
 		virtual bool resume() {
-		    if (ResumeThread(handle) != -1) {
+		    if (static_cast<int>(ResumeThread(handle)) != -1) {
 		        isRunningVariable = true;
 		        return true;
 		    } else {

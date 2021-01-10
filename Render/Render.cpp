@@ -119,16 +119,11 @@ void Render::go() {
         face.run();
     }
 
-    if(waitForAll()) {
-        std::cout << "ok" << std::endl;
-        faces[static_cast<uint8_t>(Face::PZ)].getImage().save(R"(D:\Git\OSFES\img\PZ.jpg)");
-        faces[static_cast<uint8_t>(Face::NZ)].getImage().save(R"(D:\Git\OSFES\img\NZ.jpg)");
-        faces[static_cast<uint8_t>(Face::PX)].getImage().save(R"(D:\Git\OSFES\img\PX.jpg)");
-        faces[static_cast<uint8_t>(Face::NX)].getImage().save(R"(D:\Git\OSFES\img\NX.jpg)");
-        faces[static_cast<uint8_t>(Face::PY)].getImage().save(R"(D:\Git\OSFES\img\PY.jpg)");
-        faces[static_cast<uint8_t>(Face::NY)].getImage().save(R"(D:\Git\OSFES\img\NY.jpg)");
-    }
-    std::cout << "end" << std::endl;
+//    if(waitForAll()) {
+//        std::cout << "ok" << std::endl;
+//
+//    }
+//    std::cout << "end" << std::endl;
 }
 
 Render::Render(IMAGE& sourceImage) {

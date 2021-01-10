@@ -13,5 +13,5 @@ add_subdirectory(Render)
 add_subdirectory(cxxopts)
 
 add_executable(OSFES main.cpp)
-target_link_libraries(OSFES PUBLIC render osapi cxxopts)
+target_link_libraries(OSFES PUBLIC render cxxopts)
 

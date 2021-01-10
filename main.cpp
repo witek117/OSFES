@@ -1,8 +1,8 @@
 #include "cxxopts.hpp"
-#include "Render/Render.h"
+
 #define cimg_use_jpeg
 #include "CImg.h"
-
+#include "Render/Render.h"
 #include <cstdlib>
 #include <iostream>
 #include <sys/stat.h>
@@ -53,30 +53,31 @@ int main(int argc, char *argv[]) {
         sourceImagePath = result["source"].as<std::string>();
     }
 
-//    if (result.count("output")) {
-//        outputDirectoryPath = result["output"].as<std::string>() + getFileName(sourceImagePath);
-//    } else {
-//        outputDirectoryPath = getDirectoryFromPath(sourceImagePath) + getFileName(sourceImagePath);
-//    }
-//
-//    struct stat st = {0};
-//    stat(outputDirectoryPath.c_str(), &st);
-//
-//    if(!S_ISDIR(st.st_mode)) {
-//        mkdir(outputDirectoryPath.c_str());
-//    }
+    if (result.count("output")) {
+        outputDirectoryPath = result["output"].as<std::string>() + getFileName(sourceImagePath);
+    } else {
+        outputDirectoryPath = getDirectoryFromPath(sourceImagePath) + getFileName(sourceImagePath);
+    }
+
+    struct stat st = {0};
+    stat(outputDirectoryPath.c_str(), &st);
+
+    if(!S_ISDIR(st.st_mode)) {
+        mkdir(outputDirectoryPath.c_str());
+    }
 
     std::cout << "Rendering image from: " <<  sourceImagePath << std::endl;
 
-//    cimg_library::CImg<unsigned char> sourceImage(sourceImagePath.c_str());
-    cimg_library::CImg<unsigned char> sourceImage("A:/original.jpg");
+    std::cout << "Images save in : " <<  outputDirectoryPath << std::endl;
 
-//    Render render={sourceImage};
-//    render.go();
-//
-//    if(render.waitForAll()) {
-//        render.saveFiles(outputDirectoryPath);
-//    }
+    cimg_library::CImg<unsigned char> sourceImage(sourceImagePath.c_str());
+
+    Render render={sourceImage};
+    render.go();
+
+    if(render.waitForAll()) {
+        render.saveFiles(outputDirectoryPath);
+    }
 
     return 0;
 }

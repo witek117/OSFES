@@ -4,13 +4,13 @@
 #include "CImg.h"
 
 #include "Render/Render.h"
-int main(int argc,char **argv) {
+int main() {
     cimg_library::CImg<unsigned char> sourceImage(R"(D:\Git\OSFES\img\original.jpg)");
-    int sourceWidth = sourceImage.width();
-    int sourceHeight = sourceImage.height();
 
-    auto nnn = Render::renderFace(sourceImage, Render::Face::NX, 0);
-    nnn.save_jpeg(R"(D:\Git\OSFES\img\pz.jpg)");
+    Render render(sourceImage);
+    render.go(Render::Face::NX);
+
+
 
     return 0;
 }

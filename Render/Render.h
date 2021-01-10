@@ -12,6 +12,8 @@ class Render {
     static const int filterSize = 5;
     static const int twoFilterSize = 2 * filterSize;
 
+    IMAGE& sourceImage;
+
 public:
     enum class Face {
         PZ = 0, NZ, PX, NX, PY, NY
@@ -47,7 +49,6 @@ private:
         return fmod( (fmod(x, n) + n), n);
     }
 
-public:
     static IMAGE renderFace(IMAGE& sourceImage, Face face, double rotation) {
         int sourceWidth = sourceImage.width();
         int sourceHeight = sourceImage.height();
@@ -108,5 +109,12 @@ public:
         }
         char data[] = {(char)Q[0], (char)Q[1], (char)Q[2]};
         write.draw_point(to[0],to[1], data);
+    }
+
+public:
+    Render(IMAGE& sourceImage) : sourceImage(sourceImage) { }
+
+    void go(Face face) {
+        renderFace(sourceImage, face, 0);
     }
 };

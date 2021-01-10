@@ -9,7 +9,7 @@ int main(int argc,char **argv) {
     int sourceWidth = sourceImage.width();
     int sourceHeight = sourceImage.height();
 
-    auto nnn = Render::renderFace(sourceWidth, sourceHeight, sourceImage, "ny", 0);
+    auto nnn = Render::renderFace(sourceImage, Render::Face::NX, 0);
     nnn.save_jpeg(R"(D:\Git\OSFES\img\pz.jpg)");
 
     return 0;

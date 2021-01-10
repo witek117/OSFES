@@ -1,28 +1,19 @@
 #include "cxxopts.hpp"
 
-#define cimg_use_jpeg
 #include "CImg.h"
 #include "Render/Render.h"
-#include <cstdlib>
 #include <iostream>
 #include <sys/stat.h>
 #include <unistd.h>
 
-std::string current_working_directory() {
-    char* cwd = _getcwd( 0, 0 ) ; // **** microsoft specific ****
-    std::string working_directory(cwd) ;
-    std::free(cwd) ;
-    return working_directory ;
-}
-
-std::string getDirectoryFromPath(std::string filePath) {
+std::string getDirectoryFromPath(const std::string& filePath) {
     int s1 = filePath.find_last_of('\\');
     int s2 = filePath.find_last_of('/');
     int index = std::max(s1, s2);
     return filePath.substr(0, index);
 }
 
-std::string getFileName(std::string filePath) {
+std::string getFileName(const std::string& filePath) {
     int s1 = filePath.find_last_of('\\');
     int s2 = filePath.find_last_of('/');
     int index = std::max(s1, s2);

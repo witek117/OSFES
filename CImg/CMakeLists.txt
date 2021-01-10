@@ -261,48 +261,11 @@ endif()
 # Add CIMG Flags to Compilation Flags
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${CIMG_CFLAGS}")
 
-
 add_subdirectory(libjpeg)
+target_compile_definitions(libjpeg PUBLIC cimg_use_jpeg)
 
 add_library(CImg INTERFACE)
 target_include_directories(CImg INTERFACE ${CIMG_H_PATH})
 target_include_directories(CImg INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/libjpeg)
 target_link_libraries(CImg INTERFACE ${SYSTEM_LIBS})
 target_link_libraries(CImg INTERFACE libjpeg)
-
-#SET(CIMG_FILES CImg_demo
-#  captcha
-#  curve_editor2d
-#  dtmri_view3d
-#  edge_explorer2d
-#  fade_images
-#  gaussian_fit1d
-#  generate_loop_macros
-#  hough_transform2d
-#  image_registration2d
-#  image2ascii
-#  image_surface3d
-#  jawbreaker
-#  mcf_levelsets2d
-#  mcf_levelsets3d
-#  odykill
-#  pde_heatflow2d
-#  pde_TschumperleDeriche2d
-#  plotter1d
-#  radon_transform2d
-#  scene3d
-#  spherical_function3d
-#  tetris
-#  tron
-#  tutorial
-#  wavelet_atrous
-#  use_draw_gradient
-#  use_nlmeans
-#  use_skeleton
-#  use_RGBclass
-#  )
-#
-#foreach(program ${CIMG_FILES})
-#  add_executable(${program} ${program}.cpp)
-#  target_link_libraries(${program} ${SYSTEM_LIBS} )
-#endforeach(program)

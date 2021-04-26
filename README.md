@@ -9,10 +9,10 @@ Operatings Systems for Embedded Systems
 ### Cubemap
 <table>
   <tr>
-    <td><img src="./img/blank.jpg" width = 150px height = 150px style="display: none;"></td>
-    <td><img src="./img/blank.jpg" width = 150px height = 150px></td>
+    <td><img src="./img/blank.jpg" width = 0px height = 0px style="display: none;"></td>
+    <td><img src="./img/blank.jpg" width = 0px height = 0px style="display: none;"></td>
     <td><img src="./img/original/PY.jpg" alt="PY" width = 150px height = 150px></td>
-    <td><img src="./img/blank.jpg" width = 150px height = 100px></td>
+    <td><img src="./img/blank.jpg" width = 0px height = 0px style="display: none;"></td>
    </tr> 
    
   <tr>
@@ -24,9 +24,9 @@ Operatings Systems for Embedded Systems
    
    <tr>
     <td><img src="./img/blank.jpg" width = 0px height = 0px style="display: none;"></td>
-    <td><img src="./img/blank.jpg" width = 150px height = 150px></td>
+    <td><img src="./img/blank.jpg" width = 0px height = 0px style="display: none;"></td>
     <td><img src="./img/original/NY.jpg" alt="NY" width = 150px height = 150px></td>
-    <td><img src="./img/blank.jpg" width = 150px height = 150px></td>
+    <td><img src="./img/blank.jpg" width = 0px height = 0px style="display: none;"></td>
    </tr> 
 </table>
 
